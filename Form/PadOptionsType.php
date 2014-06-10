@@ -22,8 +22,10 @@ class PadOptionsType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
-            'translation_domain' => 'pad'
+        $resolver->setDefaults(
+            array(
+                'translation_domain' => 'pad'
+            )
         );
     }
 
