@@ -1,0 +1,46 @@
+{% extends "ClarolineCoreBundle:Workspace:layout.html.twig" %}
+
+{% block section_content %}
+
+    {% if app.session.flashbag.has('success') %}
+        <div class="alert alert-success fade in">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="flash-notice">
+                    <p>{% autoescape false %}{{ flashMessage }}{% endautoescape %}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{ 'pad_list'|trans({}, 'pad') }}
+        </h3>
+    </div>
+    <div class="panel-body">
+        <h4>{{ 'resource'|trans({}, 'platform') }} : {{ _resource.getResourceNode().getName() }}</h4>
+        <br>
+        <div>
+            <a href="{{ path('Icap_pad_create', {'aggregateId': _resource.getId()}) }}">
+                <button class="btn btn-default create-announcement-button">
+                    {{ 'create_new_pad'|trans({}, 'pad') }}
+                </button>
+            </a>
+        </div>
+        <br/>
+        <div class="margin">
+            {% for pad in pads %}
+                <div>
+                    <div class="well">
+                        <div>{{ 'title'|trans({}, 'pad') }} : {{ pad.title }}</div>
+                        <div>{{ 'unit'|trans({}, 'pad') }} : {{ pad.unit }}</div>
+                        <div>{{ 'program'|trans({}, 'pad') }} : {{ pad.program }}</div>
+                        <div><a href="{{ pad.url }}">{{ 'pad_link'|trans({}, 'pad') }}</a></div>
+                    </div>                      
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

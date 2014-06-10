@@ -1,0 +1,10 @@
+pad_list: Liste des pads
+title: Titre
+program: Programme
+unit: Unité d'enseignement
+pad_link: Lien vers le pad
+Icap_padbundle_pad_padUsers: Invités
+Icap_padbundle_pad_program: Programme
+Icap_padbundle_pad_unit: Unité d'enseignement
+Icap_padbundle_pad_options_endpointRoot: Url de l'application PadManager
+create_new_pad: Ajouter un pad

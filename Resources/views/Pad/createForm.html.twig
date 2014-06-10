@@ -1,0 +1,33 @@
+{% extends "ClarolineCoreBundle:Workspace:layout.html.twig" %}
+
+{% block section_content %}
+
+    {% if app.session.flashbag.has('error') %}
+        <div class="alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                <div class="flash-notice">
+                    <p>{% autoescape false %}{{ flashMessage }}{% endautoescape %}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div>
+        <h3>Pad</h3><br/>
+        <form
+            class="form-horizontal"
+            action="{{ path('Icap_pad_create', {'aggregateId': _resource.getId()})}}"
+            method="post" {{ form_enctype(form) }}
+            id="announcement-form"
+        >
+            {{ form_widget(form) }}
+            <div class="form-actions panel-footer">
+                <button type="submit" class="btn btn-primary">Ok</button>
+                <a href="{{ path('Icap_pads_list', {'aggregateId': _resource.getId()}) }}">
+                    <button  type="button" class="btn btn-default">Cancel</button>
+                </a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

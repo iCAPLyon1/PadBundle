@@ -1,0 +1,22 @@
+{
+    "name": "icap/pad-bundle",
+    "description": "Claroline pad plugin",
+    "keywords": ["Claroline", "Plugin", "Pad", "ICAP", "ICAP"],
+    "homepage": "http://www.claroline.net",
+    "type": "claroline-plugin",
+    "license": "",
+    "authors": [
+        {
+            "name": "baptiste bouchereau",
+            "homepage": "https://github.com/Ovski4"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "claroline/core-bundle": ">=2.0.5,<3.0"
+    },
+    "autoload": {
+        "psr-0": { "Icap\\PadBundle": "" }
+    },
+    "target-dir": "Icap/PadBundle"
+}
