@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Icap_pad_aggregate")
+ * @ORM\Table(name="icap_pad_aggregate")
  */
 class PadAggregate extends AbstractResource
 {

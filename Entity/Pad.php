@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="Icap_pad")
+ * @ORM\Table(name="icap_pad")
  */
 class Pad extends AbstractResource
 {

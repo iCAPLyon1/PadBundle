@@ -22,7 +22,7 @@
         <h4>{{ 'resource'|trans({}, 'platform') }} : {{ _resource.getResourceNode().getName() }}</h4>
         <br>
         <div>
-            <a href="{{ path('Icap_pad_create', {'aggregateId': _resource.getId()}) }}">
+            <a href="{{ path('icap_pad_create', {'aggregateId': _resource.getId()}) }}">
                 <button class="btn btn-default create-announcement-button">
                     {{ 'create_new_pad'|trans({}, 'pad') }}
                 </button>

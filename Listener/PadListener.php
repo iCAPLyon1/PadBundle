@@ -67,7 +67,7 @@ class PadListener extends ContainerAware
     }
 
     /**
-     * @DI\Observe("plugin_options_Icappad")
+     * @DI\Observe("plugin_options_icappad")
      *
      * @param CreateFormResourceEvent $event
      */
@@ -87,7 +87,7 @@ class PadListener extends ContainerAware
     }
 
     /**
-     * @DI\Observe("create_form_Icap_pad_aggregate")
+     * @DI\Observe("create_form_icap_pad_aggregate")
      *
      * @param CreateFormResourceEvent $event
      */
@@ -102,7 +102,7 @@ class PadListener extends ContainerAware
             'ClarolineCoreBundle:Resource:createForm.html.twig',
             array(
                 'form' => $form->createView(),
-                'resourceType' => 'Icap_pad_aggregate'
+                'resourceType' => 'icap_pad_aggregate'
             )
         );
         $event->setResponseContent($content);
@@ -110,7 +110,7 @@ class PadListener extends ContainerAware
     }
 
     /**
-     * @DI\Observe("create_Icap_pad_aggregate")
+     * @DI\Observe("create_icap_pad_aggregate")
      *
      * @param CreateResourceEvent $event
      * @throws \Claroline\CoreBundle\Listener\NoHttpRequestException
@@ -140,7 +140,7 @@ class PadListener extends ContainerAware
             'ClarolineCoreBundle:Resource:createForm.html.twig',
             array(
                 'form' => $form->createView(),
-                'resourceType' => 'Icap_pad_aggregate'
+                'resourceType' => 'icap_pad_aggregate'
             )
         );
         $event->setErrorFormContent($content);
@@ -149,7 +149,7 @@ class PadListener extends ContainerAware
     }
 
     /**
-     * @DI\Observe("delete_Icap_pad_aggregate")
+     * @DI\Observe("delete_icap_pad_aggregate")
      *
      * @param DeleteResourceEvent $event
      */
@@ -160,14 +160,14 @@ class PadListener extends ContainerAware
     }
 
     /**
-     * @DI\Observe("open_Icap_pad_aggregate")
+     * @DI\Observe("open_icap_pad_aggregate")
      *
      * @param OpenResourceEvent $event
      */
     public function onOpen(OpenResourceEvent $event)
     {
         $route = $this->router->generate(
-            'Icap_pads_list',
+            'icap_pads_list',
             array('aggregateId' => $event->getResource()->getId())
         );
         $event->setResponse(new RedirectResponse($route));

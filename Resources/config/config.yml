@@ -1,6 +1,6 @@
 plugin:
   has_options: true
-  icon: Icappad.png
+  icon: pad-icon.png
   resources:
       # "class" is the entity of your resource. This may be the entity of a existing
       # resource of the platform. This entity defines how the resource is stocked.
@@ -8,13 +8,13 @@ plugin:
       # In this case you can extend *Claroline\CoreBundle\Entity\Resource\File*.
     - class: Icap\PadBundle\Entity\PadAggregate
       # Your resource type name
-      name: Icap_pad_aggregate
+      name: icap_pad_aggregate
       # Do you want your resource to be exported as a part of a workspace model ?
       # Note: the default value of this parameter is "false"
       is_exportable: false
       # Icon for your resource.
       # They must be stored in the Resource/public/images/icon
-      icon: Icappad.png
+      icon: pad-icon.png
       # Which are the actions we can fire from the resource manager.
       # Note that the resource manager will set some defaults actions
       #  (parameters, delete and download).

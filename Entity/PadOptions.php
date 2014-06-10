@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Icap_pad_options")
+ * @ORM\Table(name="icap_pad_options")
  */
 class PadOptions
 {

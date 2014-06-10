@@ -66,7 +66,7 @@ class PadController extends Controller
     /**
      * @EXT\Route(
      *     "/pad/{aggregateId}/list",
-     *     name = "Icap_pads_list"
+     *     name = "icap_pads_list"
      * )
      * @EXT\ParamConverter(
      *      "aggregate",
@@ -98,7 +98,7 @@ class PadController extends Controller
     /**
      * @EXT\Route(
      *     "/pad/{aggregateId}/create",
-     *     name = "Icap_pad_create"
+     *     name = "icap_pad_create"
      * )
      * @EXT\ParamConverter(
      *      "aggregate",
@@ -142,14 +142,14 @@ class PadController extends Controller
 
                 if ($message['type'] == 'error') {
                     return $this->redirect($this->generateUrl(
-                        'Icap_pad_create',
+                        'icap_pad_create',
                         array('aggregateId'=> $aggregate->getId())
                     ));
                 } else {
                     $this->addPad($message, $aggregate);
 
                     return $this->redirect($this->generateUrl(
-                        'Icap_pads_list',
+                        'icap_pads_list',
                         array('aggregateId'=> $aggregate->getId())
                     ));
                 }
@@ -167,7 +167,7 @@ class PadController extends Controller
     /**
      * Edit Options for pads
      *
-     * @EXT\Route("/edit_options", name="Icap_pads_edit_options")
+     * @EXT\Route("/edit_options", name="icap_pads_edit_options")
      * @EXT\Method("POST")
      */
     public function editPadOptionsAction(Request $request)

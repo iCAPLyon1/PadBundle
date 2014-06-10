@@ -15,7 +15,7 @@ class IcapPadBundle extends PluginBundle
     {
         $config = new ConfigurationBuilder();
 
-        return $config->addRoutingResource(__DIR__ . '/Resources/config/routing.yml', null, 'Icap_pad');
+        return $config->addRoutingResource(__DIR__ . '/Resources/config/routing.yml', null, 'icap_pad');
     }
 
     public function getAdditionalInstaller()

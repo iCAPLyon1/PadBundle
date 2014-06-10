@@ -16,14 +16,14 @@
         <h3>Pad</h3><br/>
         <form
             class="form-horizontal"
-            action="{{ path('Icap_pad_create', {'aggregateId': _resource.getId()})}}"
+            action="{{ path('icap_pad_create', {'aggregateId': _resource.getId()})}}"
             method="post" {{ form_enctype(form) }}
             id="announcement-form"
         >
             {{ form_widget(form) }}
             <div class="form-actions panel-footer">
                 <button type="submit" class="btn btn-primary">Ok</button>
-                <a href="{{ path('Icap_pads_list', {'aggregateId': _resource.getId()}) }}">
+                <a href="{{ path('icap_pads_list', {'aggregateId': _resource.getId()}) }}">
                     <button  type="button" class="btn btn-default">Cancel</button>
                 </a>
             </div>

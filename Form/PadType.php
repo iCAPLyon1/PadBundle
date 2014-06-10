@@ -62,6 +62,6 @@ class PadType extends AbstractType
      */
     public function getName()
     {
-        return 'Icap_padbundle_pad';
+        return 'icap_padbundle_pad';
     }
 }

@@ -1,4 +1,4 @@
-Icap_pad:
+icap_pad:
     resource: "@IcapPadBundle/Controller/"
     type:     annotation
     prefix:   /
