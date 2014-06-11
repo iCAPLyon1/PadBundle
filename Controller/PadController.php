@@ -255,15 +255,15 @@ class PadController extends Controller
         } else {
             $padUrl = $message ['public_url'];
         }
-        $newPad->hydrate(
-            $padUrl,
-            $message['title'],
-            $message['program'],
-            $message['unit'],
-            $message['padOwner'],
-            $aggregate,
-            $message['padUsers']
-        );
+        $newPad
+            ->setUrl($padUrl)
+            ->setTitle($message['title'])
+            ->setProgram($message['program'])
+            ->setUnit($message['unit'])
+            ->setPadOwner($message['padOwner'])
+            ->setAggregate($aggregate)
+            ->setPadUsers($message['padUsers'])
+        ;
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($newPad);
         $em->flush();

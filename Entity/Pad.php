@@ -69,30 +69,6 @@ class Pad extends AbstractResource
     protected $aggregate;
 
     /**
-     * Create a pad
-     * 
-     * @param string $url
-     * @param string $title
-     * @param string $program
-     * @param string $unit
-     * @param string $padOwner
-     * @param \Icap\PadBundle\Entity\PadAggregate $aggregate
-     * @param string $padUsers
-     */
-    public function hydrate($url, $title, $program, $unit, $padOwner, $aggregate, $padUsers = array())
-    {
-        $this->url = $url;
-        $this->title = $title;
-        $this->program = $program;
-        $this->unit = $unit;
-        $this->padOwner = $padOwner;
-        $this->aggregate = $aggregate;
-        $this->padUsers = $padUsers;
-
-        return $this;
-    }
-
-    /**
      * Get the pad object as an array
      * 
      * @return array

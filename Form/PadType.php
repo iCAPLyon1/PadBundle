@@ -23,13 +23,16 @@ class PadType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder 
-            /*->add('padUsers', 'collection', array(
-                'type'   => 'email',
-                'options'  => array(
-                    'required'  => false,
+        $builder
+            ->add('padUsers', 'collection', array(
+                'type' => 'email',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'attr' => array(
+                    'class' => $this->getName()
                 )
-            ))*/
+            ))
             ->add('program', 'choice', array(
                 'choice_list' => new ProgramChoiceList($this->endpointRoot),
                 'required' => true

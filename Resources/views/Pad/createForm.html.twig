@@ -1,5 +1,16 @@
 {% extends "ClarolineCoreBundle:Workspace:layout.html.twig" %}
 
+{% form_theme form _self %}
+
+{% block collection_widget %}
+    {% spaceless %}
+        {% if prototype is defined %}
+            {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
+        {% endif %}
+        {{ block('form_widget') }}
+    {% endspaceless %}
+{% endblock collection_widget %}
+
 {% block section_content %}
 
     {% if app.session.flashbag.has('error') %}
@@ -30,4 +41,47 @@
         </form>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var $addLink = jQuery('<a href="#">Add</a>');
+        var $newLink = jQuery('<div class="add-link"></div>').append($addLink);
+        var collectionHolder = jQuery('.icap_padbundle_pad');
+
+        jQuery(document).ready(function() {
+            collectionHolder.append($newLink);
+
+            $addLink.on('click', function(e) {
+                e.preventDefault();
+                addForm(collectionHolder, $newLink);
+            });
+
+            collectionHolder.find('.paduser').each(function() {
+                addFormDeleteLink($(this));
+            });
+        });
+
+        function addForm(collectionHolder, $newLink) {
+            var prototype = collectionHolder.data('prototype');
+            var $newForm = prototype
+                .replace(/__name__label__/g, '')
+                .replace(/__name__/g, collectionHolder.children().length)
+            ;
+            var $newFormDiv = jQuery('<div></div>').append($newForm);
+            $newLink.before($newFormDiv);
+            addFormDeleteLink($newFormDiv);
+        }
+
+        function addFormDeleteLink($formDiv) {
+            var $removeFormA = jQuery('<div class="remove-link"><a href="#">Delete</a></div>');
+            $formDiv.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                e.preventDefault();
+                $formDiv.remove();
+            });
+        }
+    </script>
 {% endblock %}
