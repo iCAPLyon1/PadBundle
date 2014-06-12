@@ -134,7 +134,6 @@ class PadController extends Controller
                 $user = $this->get('security.context')->getToken()->getUser();
                 $pad = $form->getData();
                 $pad->setPadOwner($user->getMail());
-
                 $url = sprintf("%s/api/create", $endpointRoot);
                 $answer = $this->httpPost($url, $pad->toArray());
                 $message = json_decode($answer, true);
@@ -236,6 +235,9 @@ class PadController extends Controller
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
         $output=curl_exec($ch);
+        if (!$output) {
+            throw new \Exception("The endpoint parameter is wrong, not set, or maybe the pad manager is down");
+        }
         curl_close($ch);
 
         return $output;

@@ -1,4 +1,4 @@
-var $addLink = jQuery('<a href="#" class="btn btn-info">Add</a>');
+var $addLink = jQuery('<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></a>');
         var $newLink = jQuery('<div class="add-link"></div>').append($addLink);
         var collectionHolder = jQuery('.icap_padbundle_pad');
 
@@ -27,7 +27,7 @@ var $addLink = jQuery('<a href="#" class="btn btn-info">Add</a>');
         }
 
         function addFormDeleteLink($formDiv) {
-            var $removeFormA = jQuery('<div class="remove-link"><a class="btn btn-danger" href="#">Delete</a></div>');
+            var $removeFormA = jQuery('<div class="remove-link"><a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-minus"></span></a></div>');
             $formDiv.append($removeFormA);
 
             $removeFormA.find('a').on('click', function(e) {

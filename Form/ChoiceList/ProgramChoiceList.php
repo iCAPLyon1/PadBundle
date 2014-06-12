@@ -21,6 +21,9 @@ class ProgramChoiceList extends LazyChoiceList
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
+        if (!$output) {
+            throw new \Exception("The endpoint parameter is wrong, not set, or maybe the pad manager is down");
+        }
         $json = json_decode(utf8_encode($output), true);
 
         curl_close($ch);
