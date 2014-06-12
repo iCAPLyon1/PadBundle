@@ -8,3 +8,4 @@ icap_padbundle_pad_program: Program
 icap_padbundle_pad_unit: Unit
 icap_padbundle_pad_options_endpointRoot: PadManager application url
 create_new_pad: Add a new pad
+admin_plugin_pad: Pad plugin administration
