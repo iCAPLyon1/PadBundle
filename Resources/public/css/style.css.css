@@ -1,0 +1,11 @@
+#icap_padbundle_pad {
+    margin: 0 20px;
+}
+
+#icap_padbundle_pad_padUsers .remove-link > a {
+    margin-bottom: 10px;
+}
+
+#icap_padbundle_pad_padUsers label {
+    display: none;
+}

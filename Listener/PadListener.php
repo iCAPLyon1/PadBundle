@@ -155,7 +155,8 @@ class PadListener extends ContainerAware
      */
     public function onDelete(DeleteResourceEvent $event)
     {
-        $this->resourceManager->delete($event->getResource());
+        $this->em->remove($event->getResource());
+        $this->em->flush();
         $event->stopPropagation();
     }
 

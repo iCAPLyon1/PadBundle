@@ -36,6 +36,14 @@
                         <div>{{ 'title'|trans({}, 'pad') }} : {{ pad.title }}</div>
                         <div>{{ 'unit'|trans({}, 'pad') }} : {{ pad.unit }}</div>
                         <div>{{ 'program'|trans({}, 'pad') }} : {{ pad.program }}</div>
+                        {% if pad.padUsers %}
+                            <div>
+                                {{ 'icap_padbundle_pad_padUsers'|trans({}, 'pad') }} :
+                                {% for padUser in pad.padUsers %}
+                                    {{ padUser.mail }}{% if not loop.last %},{% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                         <div><a href="{{ pad.url }}">{{ 'pad_link'|trans({}, 'pad') }}</a></div>
                     </div>                      
                 </div>

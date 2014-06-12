@@ -1,5 +1,10 @@
 {% extends "ClarolineCoreBundle:Workspace:layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel='stylesheet' type='text/css' href='{{ asset('bundles/icappad/css/style.css')}}'>
+{% endblock %}
+
 {% form_theme form _self %}
 
 {% block collection_widget %}
@@ -29,7 +34,7 @@
             class="form-horizontal"
             action="{{ path('icap_pad_create', {'aggregateId': _resource.getId()})}}"
             method="post" {{ form_enctype(form) }}
-            id="announcement-form"
+            id="pad-form"
         >
             {{ form_widget(form) }}
             <div class="form-actions panel-footer">
@@ -45,43 +50,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript">
-        var $addLink = jQuery('<a href="#">Add</a>');
-        var $newLink = jQuery('<div class="add-link"></div>').append($addLink);
-        var collectionHolder = jQuery('.icap_padbundle_pad');
-
-        jQuery(document).ready(function() {
-            collectionHolder.append($newLink);
-
-            $addLink.on('click', function(e) {
-                e.preventDefault();
-                addForm(collectionHolder, $newLink);
-            });
-
-            collectionHolder.find('.paduser').each(function() {
-                addFormDeleteLink($(this));
-            });
-        });
-
-        function addForm(collectionHolder, $newLink) {
-            var prototype = collectionHolder.data('prototype');
-            var $newForm = prototype
-                .replace(/__name__label__/g, '')
-                .replace(/__name__/g, collectionHolder.children().length)
-            ;
-            var $newFormDiv = jQuery('<div></div>').append($newForm);
-            $newLink.before($newFormDiv);
-            addFormDeleteLink($newFormDiv);
-        }
-
-        function addFormDeleteLink($formDiv) {
-            var $removeFormA = jQuery('<div class="remove-link"><a href="#">Delete</a></div>');
-            $formDiv.append($removeFormA);
-
-            $removeFormA.on('click', function(e) {
-                e.preventDefault();
-                $formDiv.remove();
-            });
-        }
-    </script>
+    <script type="text/javascript" src="{{ asset('bundles/icappad/js/form_collection.js') }}"></script>
 {% endblock %}
